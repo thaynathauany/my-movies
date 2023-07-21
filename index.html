@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./modal.css">
+    <link rel="stylesheet" href="./src/notie-master/dist/notie.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;700&display=swap');
+    </style>
+    <title>List of movies to watch</title>
+</head>
+
+<body>
+    <header>
+        <h2><i class="bi bi-camera-reels"></i>MyMovies</h2>
+        <section id="search-container">
+            <div class="input-wrapper movie-name-wrapper">
+                <label for="movie-name">Name:</label>
+                <input type="text" id="movie-name" />
+            </div>
+
+            <div class="input-wraper movie-year-wrapper">
+                <label for="movie-year">Year:</label>
+                <input type="text" id="movie-year" />
+            </div>
+            <button id="search-button"><i class="bi bi-search"></i></button>
+        </section>
+    </header>
+    <main>
+        <h2>Start your movie list now!</h2>
+        <section id="movie-list">
+
+        </section>
+        <article id="modal-overlay" class="overlay">
+            <section id="modal-background"></section>
+            <section id="modal-container"> </section>
+        </article>
+    </main>
+    <script src="./script.js"></script>
+    <script src="./modal.js"></script>
+    <script src="./key.js"></script>
+    <script src="./src/notie-master/dist/notie.min.js"></script>
+</body>
+
+</html>
