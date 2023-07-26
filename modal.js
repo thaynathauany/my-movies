@@ -3,6 +3,11 @@ const modalContainer = document.getElementById('modal-container')
 
 function backgroundClickHandler() {
     overlay.classList.remove('open')
+    var elements = document.getElementsByClassName("qq");
+    // Loop através de cada elemento e adicione a classe desejada
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].classList.remove("escondido");
+    }
 }
 
 
@@ -36,9 +41,6 @@ function createModal(data) {
                 Add to List
             </button>
         </section>`
-
-    // var element = document.getElementById("qq");
-    // element.classList.add("escondido");
 }
 
 background.addEventListener('click', backgroundClickHandler)

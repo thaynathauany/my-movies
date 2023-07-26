@@ -49,6 +49,17 @@ function movieYearParameterGenerator() {
 }
 
 function addToList(data) {
+    if (isFilmAlreadyOnList(data.imdbID)) {
+        notie.alert({ type: 'error', text: 'Movie is already on the list...' });
+        overlay.classList.remove('open');
+        var elements = document.getElementsByClassName("qq");
+        // Loop através de cada elemento e adicione a classe desejada
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.remove("escondido");
+            return;
+        }
+        return
+    }
     movieList.push(data);
     updateUI(data)
     overlay.classList.remove('open')
@@ -60,14 +71,27 @@ function addToList(data) {
 }
 
 function updateUI(data) {
-    movieListContainer.innerHTML += `<article class='qq'
+    movieListContainer.innerHTML += `<article id='movie-card-${data.imdbID}' class='qq'
     >
     <img id="img-list"
         src="${data.Poster}"
         alt="${data.Title}" 
     />
-    <button class="remove-button"><i class="bi bi-trash3"></i>Remove</button>
+    <button class="remove-button"  onclick='{removeFilmFromList(${JSON.stringify(data.imdbID)})}'><i class="bi bi-trash3"></i>Remove</button>
 </article>`
+
+}
+
+function isFilmAlreadyOnList(imdbID) {
+    function isThisIdFromThisMovie(movie) {
+        return movie.imdbID === imdbID
+    }
+    return movieList.find(isThisIdFromThisMovie)
+}
+
+function removeFilmFromList(imdbID) {
+    movieList = movieList.filter(movie => movie.imdbID != imdbID)
+    document.getElementById(`movie-card-${imdbID}`).remove();
 }
 
 console.log(movieList);
